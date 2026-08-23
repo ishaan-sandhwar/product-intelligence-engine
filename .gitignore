@@ -41,6 +41,11 @@ outputs/exports/*
 docs/deck_preview/
 *UniHack-Protoype Template*.pptx
 
+# Submission prep notes - the recording script and the deploy walkthrough are
+# written to us, not to anyone reading the repo.
+DEMO_SCRIPT.md
+DEPLOY.md
+
 # --- os / editor ---
 .DS_Store
 Thumbs.db

@@ -8,7 +8,7 @@ between has to be recovered, and every recovered value has to be defensible.
 
 ---
 
-## Solution Overview — paste-ready for the submission form
+## Solution overview
 
 > The Product Intelligence Engine turns a bare distributor row — a part number,
 > one line of 35-character trade shorthand, and brand columns that are mostly
