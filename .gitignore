@@ -36,6 +36,11 @@ outputs/exports/*
 .streamlit/secrets.toml
 .llm_cache/
 
+# Slide renders used to proof the deck locally, and the blank template the
+# challenge supplies - neither is source.
+docs/deck_preview/
+[EXT] UniHack-Protoype Template *.pptx
+
 # --- os / editor ---
 .DS_Store
 Thumbs.db

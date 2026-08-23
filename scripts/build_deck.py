@@ -342,7 +342,7 @@ def slide_architecture(slide) -> None:
 def slide_technologies(slide) -> None:
     groups = [
         ("Core", "Python 3.13 · pydantic · pandas · numpy"),
-        ("Intelligence", "Gemini 3.5 Flash-Lite (bulk) · Gemini 3.6 Flash (vision) · "
+        ("Intelligence", "Gemini 3.1 Flash-Lite (bulk) · Gemini 3.6 Flash (vision) · "
                          "provider-agnostic client with Anthropic / OpenAI / Groq fallback"),
         ("Retrieval & graph", "networkx knowledge graph · TF-IDF peer retrieval (scikit-learn) · "
                               "rapidfuzz alias matching"),
@@ -457,6 +457,14 @@ BUILDERS = {
 def main() -> int:
     if not TEMPLATE.is_file():
         print(f"Template not found: {TEMPLATE}", file=sys.stderr)
+        return 1
+
+    # The built deck gets hand-edited afterwards - team details, the submission
+    # URLs, slides removed. Rebuilding from the template would silently discard
+    # all of that, so an existing deck has to be overwritten deliberately.
+    if OUTPUT.exists() and "--force" not in sys.argv:
+        print(f"{OUTPUT.name} already exists and may contain hand edits.")
+        print("Re-run with --force to rebuild it from the template.")
         return 1
 
     deck = Presentation(str(TEMPLATE))
