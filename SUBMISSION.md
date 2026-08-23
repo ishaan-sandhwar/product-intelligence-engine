@@ -120,7 +120,7 @@ python -m venv .venv && .venv/Scripts/activate      # Windows
 pip install -r requirements.txt
 cp .env.example .env                                 # add GEMINI_API_KEY
 
-streamlit run app.py                                 # the six-page app
+streamlit run Overview.py                                 # the six-page app
 
 # headless
 python scripts/run_pipeline.py "data/raw/Unihack_ Sample Dataset - Input.csv" --no-llm

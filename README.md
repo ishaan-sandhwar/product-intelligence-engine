@@ -108,7 +108,7 @@ python -m venv .venv
 pip install -r requirements.txt
 
 copy .env.example .env             # then paste in one API key (any provider)
-streamlit run app.py
+streamlit run Overview.py
 ```
 
 Load `data/raw/Unihack_ Sample Dataset - Input.csv` on the **Ingest & Run** page.
@@ -204,7 +204,7 @@ config.py                 paths, model ids, thresholds, scoring weights, content
 schemas/attributes.json   the canonical dictionary: 26 classes, taxonomy, attributes, content fields
 schemas/attributes_industrial.json   the same contract aimed at industrial equipment - swap to re-target
 resources/                the delivery template (its header row is the export contract)
-app.py                    Streamlit entry (Overview)
+Overview.py               Streamlit entry (Overview page)
 pages/                    Ingest · Catalog · Review Queue · Quality · Export
 scripts/                  headless batch runner, messy-sample generator
 src/

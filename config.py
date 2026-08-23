@@ -20,6 +20,16 @@ def _adopt_streamlit_secrets() -> None:
     the CLI runs without streamlit installed, and a local app runs without a
     secrets file.
     """
+    # Touching st.secrets when no secrets file exists renders an error banner in
+    # the app for every lookup, so the file is checked first. Streamlit Cloud
+    # materialises its secrets into the home-directory path below.
+    candidates = (
+        Path.home() / ".streamlit" / "secrets.toml",
+        Path(__file__).parent / ".streamlit" / "secrets.toml",
+    )
+    if not any(c.is_file() for c in candidates):
+        return
+
     try:
         import streamlit as st
     except ModuleNotFoundError:
@@ -69,7 +79,7 @@ PROVIDER_PRIORITY = ["anthropic", "gemini", "openai", "groq"]
 
 MODEL_IDS = {
     "anthropic": {"text": "claude-sonnet-5", "vision": "claude-sonnet-5"},
-    "gemini": {"text": "gemini-3.5-flash-lite", "vision": "gemini-3.6-flash"},
+    "gemini": {"text": "gemini-3.1-flash-lite", "vision": "gemini-3.6-flash"},
     "openai": {"text": "gpt-4o-mini", "vision": "gpt-4o"},
     "groq": {"text": "llama-3.3-70b-versatile", "vision": None},
 }

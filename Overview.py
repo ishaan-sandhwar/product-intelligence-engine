@@ -1,6 +1,6 @@
 """Product Intelligence Engine — Streamlit entry point.
 
-Run with:  streamlit run app.py
+Run with:  streamlit run Overview.py
 
 The home page answers the only question that matters at a glance: how good is
 this catalogue now, how good was it when it arrived, and what still needs a

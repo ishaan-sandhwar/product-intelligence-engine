@@ -27,7 +27,7 @@ records = require_records()
 row = st.columns(3)
 scope = row[0].selectbox(
     "Which products",
-    ["Publish-ready only", "Everything", "Needs review only"],
+    ["Everything", "Publish-ready only", "Needs review only"],
     help="Publish-ready = nothing waiting on a human and nothing rejected.",
 )
 min_conf = row[1].slider("Drop fields below confidence", 0.0, 1.0,
