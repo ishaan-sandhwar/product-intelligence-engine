@@ -1,0 +1,3071 @@
+{
+  "version": "2.0",
+  "notes": "Canonical attribute dictionary for a US building-products / MRO distributor catalogue, targeted at the Unilog delivery template (Dept > Class > Fine). Canonical units are imperial because that is what the trade publishes and the delivery template carries its own UOM column. Swapping this file re-targets the whole pipeline; schemas/attributes_industrial.json is the same contract for industrial equipment. Part_Manuf is the supplier account, not the manufacturer: it carries reseller names as often as maker names, so it maps to `supplier` and src/normalize/identity.py decides what reaches `manufacturer`.",
+  "taxonomy": {
+    "levels": [
+      "Dept",
+      "Class",
+      "Fine"
+    ],
+    "separator": ">"
+  },
+  "common": {
+    "sku": {
+      "label": "Manufacturer Part Number",
+      "datatype": "string",
+      "required": true,
+      "weight": 3,
+      "aliases": [
+        "mfg_part_num",
+        "mfg part num",
+        "part number",
+        "part no",
+        "mpn",
+        "manufacturer part number",
+        "part_number",
+        "catalog number",
+        "item code",
+        "model number",
+        "model no"
+      ]
+    },
+    "product_name": {
+      "label": "Product Name",
+      "datatype": "string",
+      "required": true,
+      "weight": 3,
+      "aliases": [
+        "name",
+        "title",
+        "product title",
+        "item name",
+        "description",
+        "part_desc",
+        "part desc",
+        "product description",
+        "item description",
+        "short text"
+      ]
+    },
+    "brand": {
+      "label": "Brand",
+      "datatype": "string",
+      "required": true,
+      "weight": 3,
+      "aliases": [
+        "brand name",
+        "brand_name",
+        "e1_brand",
+        "dib_brand",
+        "unilog_brand",
+        "make",
+        "trade name"
+      ]
+    },
+    "manufacturer": {
+      "label": "Manufacturer",
+      "datatype": "string",
+      "required": true,
+      "weight": 2,
+      "aliases": [
+        "manufacturer name",
+        "manufacturer_name",
+        "mfr",
+        "oem"
+      ]
+    },
+    "supplier": {
+      "label": "Supplier Account",
+      "datatype": "string",
+      "required": false,
+      "weight": 1,
+      "aliases": [
+        "part_manuf",
+        "part manuf",
+        "vendor",
+        "vendor name",
+        "supplier",
+        "supplier name",
+        "distributor",
+        "sold by",
+        "source"
+      ]
+    },
+    "category": {
+      "label": "Category",
+      "datatype": "string",
+      "required": true,
+      "weight": 3,
+      "aliases": [
+        "fine",
+        "product category",
+        "product type",
+        "commodity",
+        "segment",
+        "class"
+      ]
+    },
+    "series": {
+      "label": "Series",
+      "datatype": "string",
+      "aliases": [
+        "collection",
+        "product line",
+        "range",
+        "model series",
+        "family"
+      ]
+    },
+    "color": {
+      "label": "Color",
+      "datatype": "string",
+      "aliases": [
+        "colour",
+        "color name",
+        "finish color",
+        "shade"
+      ]
+    },
+    "material": {
+      "label": "Material",
+      "datatype": "string",
+      "aliases": [
+        "construction material",
+        "body material",
+        "composition"
+      ]
+    },
+    "finish": {
+      "label": "Finish",
+      "datatype": "string",
+      "aliases": [
+        "surface finish",
+        "coating"
+      ]
+    },
+    "length_in": {
+      "label": "Length",
+      "datatype": "number",
+      "unit": "in",
+      "unit_family": "length_in",
+      "min": 0,
+      "max": 2400,
+      "aliases": [
+        "length",
+        "overall length",
+        "len"
+      ]
+    },
+    "width_in": {
+      "label": "Width",
+      "datatype": "number",
+      "unit": "in",
+      "unit_family": "length_in",
+      "min": 0,
+      "max": 2400,
+      "aliases": [
+        "width",
+        "overall width",
+        "breadth"
+      ]
+    },
+    "height_in": {
+      "label": "Height",
+      "datatype": "number",
+      "unit": "in",
+      "unit_family": "length_in",
+      "min": 0,
+      "max": 2400,
+      "aliases": [
+        "height",
+        "overall height",
+        "depth",
+        "thickness"
+      ]
+    },
+    "weight_lb": {
+      "label": "Weight",
+      "datatype": "number",
+      "unit": "lb",
+      "unit_family": "mass_lb",
+      "min": 0,
+      "max": 20000,
+      "aliases": [
+        "weight",
+        "wt",
+        "net weight",
+        "gross weight",
+        "ship weight"
+      ]
+    },
+    "pack_quantity": {
+      "label": "Pack Quantity",
+      "datatype": "number",
+      "min": 1,
+      "max": 10000,
+      "aliases": [
+        "pack qty",
+        "qty per pack",
+        "pieces",
+        "pcs",
+        "pc",
+        "pk",
+        "count",
+        "units per package",
+        "selling qty"
+      ]
+    },
+    "selling_uom": {
+      "label": "Selling UOM",
+      "datatype": "enum",
+      "enum": [
+        "EA",
+        "PK",
+        "BX",
+        "CS",
+        "RL",
+        "BDL",
+        "SQ",
+        "LF",
+        "SF",
+        "GAL",
+        "SET"
+      ],
+      "aliases": [
+        "uom",
+        "unit of measure",
+        "sell uom",
+        "order uom"
+      ]
+    },
+    "certifications": {
+      "label": "Standards & Approvals",
+      "datatype": "list",
+      "aliases": [
+        "approvals",
+        "standards",
+        "compliance",
+        "listings",
+        "certs",
+        "certifications",
+        "standard/approvals"
+      ]
+    },
+    "warranty_months": {
+      "label": "Warranty",
+      "datatype": "number",
+      "unit": "month",
+      "unit_family": "time",
+      "min": 0,
+      "max": 1200,
+      "aliases": [
+        "warranty",
+        "warranty period",
+        "guarantee"
+      ]
+    },
+    "country_of_origin": {
+      "label": "Country Of Origin",
+      "datatype": "string",
+      "aliases": [
+        "origin",
+        "coo",
+        "made in",
+        "country of origin"
+      ]
+    },
+    "upc": {
+      "label": "UPC",
+      "datatype": "string",
+      "regex": "^\\d{12,14}$",
+      "aliases": [
+        "upc code",
+        "gtin",
+        "ean",
+        "barcode"
+      ]
+    },
+    "unspsc_code": {
+      "label": "UNSPSC",
+      "datatype": "string",
+      "regex": "^\\d{8}$",
+      "aliases": [
+        "unspsc",
+        "commodity code"
+      ]
+    },
+    "discontinued": {
+      "label": "Discontinued",
+      "datatype": "boolean",
+      "aliases": [
+        "is discontinued",
+        "status discontinued",
+        "obsolete"
+      ]
+    }
+  },
+  "categories": {
+    "decking_board": {
+      "label": "Decking Board",
+      "dept": "Building Products",
+      "class": "Decking & Railing",
+      "keywords": [
+        "decking",
+        "deck board",
+        "grooved",
+        "square edge",
+        "sq edge",
+        "transcend",
+        "enhance",
+        "select naturals",
+        "lineage",
+        "composite deck",
+        "decking board",
+        "grooved decking",
+        "square edge decking"
+      ],
+      "attributes": {
+        "board_width_in": {
+          "label": "Board Width",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 1,
+          "max": 24,
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "board width",
+            "nominal width",
+            "profile width"
+          ]
+        },
+        "board_length_ft": {
+          "label": "Board Length",
+          "datatype": "number",
+          "unit": "ft",
+          "unit_family": "length_ft",
+          "min": 1,
+          "max": 40,
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "board length",
+            "plank length",
+            "stock length"
+          ]
+        },
+        "board_thickness_in": {
+          "label": "Board Thickness",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.1,
+          "max": 4,
+          "aliases": [
+            "thickness",
+            "nominal thickness"
+          ]
+        },
+        "edge_profile": {
+          "label": "Edge Profile",
+          "datatype": "enum",
+          "enum": [
+            "Grooved Edge",
+            "Square Edge",
+            "Scalloped"
+          ],
+          "required": true,
+          "aliases": [
+            "profile",
+            "edge type",
+            "edge"
+          ]
+        },
+        "composition": {
+          "label": "Composition",
+          "datatype": "enum",
+          "enum": [
+            "Capped Composite",
+            "Composite",
+            "PVC",
+            "Capped Polymer",
+            "Wood",
+            "Aluminum"
+          ],
+          "aliases": [
+            "material type",
+            "deck material"
+          ]
+        },
+        "surface_texture": {
+          "label": "Surface Texture",
+          "datatype": "string",
+          "aliases": [
+            "texture",
+            "grain",
+            "embossing"
+          ]
+        },
+        "installation_method": {
+          "label": "Installation Method",
+          "datatype": "enum",
+          "enum": [
+            "Hidden Fastener",
+            "Face Screw",
+            "Clip"
+          ],
+          "aliases": [
+            "fastening",
+            "install method"
+          ]
+        },
+        "coverage_lf": {
+          "label": "Coverage",
+          "datatype": "number",
+          "unit": "ft",
+          "unit_family": "length_ft",
+          "min": 0,
+          "max": 5000,
+          "aliases": [
+            "linear feet",
+            "lineal feet",
+            "coverage"
+          ]
+        }
+      }
+    },
+    "railing_component": {
+      "label": "Railing Component",
+      "dept": "Building Products",
+      "class": "Decking & Railing",
+      "keywords": [
+        "railing",
+        "rail kit",
+        "baluster",
+        "post cap",
+        "post sleeve",
+        "gate",
+        "handrail",
+        "bracket kit",
+        "infill"
+      ],
+      "attributes": {
+        "component_type": {
+          "label": "Component Type",
+          "datatype": "enum",
+          "enum": [
+            "Rail Kit",
+            "Baluster",
+            "Post",
+            "Post Sleeve",
+            "Post Cap",
+            "Gate",
+            "Bracket",
+            "Handrail",
+            "Infill Panel"
+          ],
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "type",
+            "part type"
+          ]
+        },
+        "rail_length_ft": {
+          "label": "Rail Length",
+          "datatype": "number",
+          "unit": "ft",
+          "unit_family": "length_ft",
+          "min": 1,
+          "max": 30,
+          "aliases": [
+            "length",
+            "section length"
+          ]
+        },
+        "rail_height_in": {
+          "label": "Rail Height",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 12,
+          "max": 60,
+          "aliases": [
+            "height",
+            "rail height",
+            "guard height"
+          ]
+        },
+        "post_size_in": {
+          "label": "Post Size",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 1,
+          "max": 12,
+          "aliases": [
+            "post dimension",
+            "sleeve size"
+          ]
+        },
+        "baluster_style": {
+          "label": "Baluster Style",
+          "datatype": "enum",
+          "enum": [
+            "Square",
+            "Round",
+            "Glass",
+            "Cable",
+            "Composite"
+          ],
+          "aliases": [
+            "infill style",
+            "picket style"
+          ]
+        },
+        "railing_material": {
+          "label": "Railing Material",
+          "datatype": "enum",
+          "enum": [
+            "Aluminum",
+            "Composite",
+            "PVC",
+            "Steel",
+            "Wood",
+            "Glass"
+          ],
+          "aliases": [
+            "material"
+          ]
+        },
+        "mounting_style": {
+          "label": "Mounting Style",
+          "datatype": "enum",
+          "enum": [
+            "Surface Mount",
+            "Fascia Mount",
+            "Post Mount",
+            "Wall Mount"
+          ],
+          "aliases": [
+            "mount",
+            "attachment"
+          ]
+        }
+      }
+    },
+    "trim_fascia": {
+      "label": "Trim & Fascia",
+      "dept": "Building Products",
+      "class": "Decking & Railing",
+      "keywords": [
+        "fascia",
+        "trim board",
+        "riser",
+        "skirting",
+        "corner board",
+        "landmark",
+        "pvc trim"
+      ],
+      "attributes": {
+        "nominal_width_in": {
+          "label": "Nominal Width",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 1,
+          "max": 24,
+          "required": true,
+          "aliases": [
+            "width",
+            "nominal width"
+          ]
+        },
+        "nominal_thickness_in": {
+          "label": "Nominal Thickness",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.1,
+          "max": 4,
+          "aliases": [
+            "thickness"
+          ]
+        },
+        "board_length_ft": {
+          "label": "Board Length",
+          "datatype": "number",
+          "unit": "ft",
+          "unit_family": "length_ft",
+          "min": 1,
+          "max": 24,
+          "required": true,
+          "aliases": [
+            "length",
+            "stock length"
+          ]
+        },
+        "trim_profile": {
+          "label": "Profile",
+          "datatype": "string",
+          "aliases": [
+            "profile",
+            "edge profile"
+          ]
+        },
+        "composition": {
+          "label": "Composition",
+          "datatype": "enum",
+          "enum": [
+            "PVC",
+            "Capped Composite",
+            "Composite",
+            "Wood",
+            "Fiber Cement"
+          ],
+          "aliases": [
+            "material type"
+          ]
+        }
+      }
+    },
+    "roofing_shingle": {
+      "label": "Roofing Shingle",
+      "dept": "Building Products",
+      "class": "Roofing",
+      "keywords": [
+        "shingle",
+        "duration",
+        "trudef",
+        "architectural shingle",
+        "ridge cap",
+        "starter strip"
+      ],
+      "attributes": {
+        "shingle_type": {
+          "label": "Shingle Type",
+          "datatype": "enum",
+          "enum": [
+            "Architectural",
+            "3-Tab",
+            "Ridge Cap",
+            "Starter Strip",
+            "Designer"
+          ],
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "type",
+            "profile"
+          ]
+        },
+        "coverage_sqft": {
+          "label": "Coverage",
+          "datatype": "number",
+          "unit": "sq ft",
+          "unit_family": "area_sqft",
+          "min": 0,
+          "max": 5000,
+          "aliases": [
+            "coverage",
+            "bundle coverage",
+            "square coverage"
+          ]
+        },
+        "bundles_per_square": {
+          "label": "Bundles Per Square",
+          "datatype": "number",
+          "min": 1,
+          "max": 10,
+          "aliases": [
+            "bundles per sq",
+            "bundle count"
+          ]
+        },
+        "wind_rating_mph": {
+          "label": "Wind Rating",
+          "datatype": "number",
+          "unit": "mph",
+          "min": 0,
+          "max": 250,
+          "aliases": [
+            "wind resistance",
+            "wind rating"
+          ]
+        },
+        "warranty_years": {
+          "label": "Limited Warranty",
+          "datatype": "number",
+          "unit": "yr",
+          "min": 0,
+          "max": 100,
+          "aliases": [
+            "warranty years",
+            "limited warranty"
+          ]
+        },
+        "color": {
+          "label": "Color",
+          "datatype": "string",
+          "aliases": [
+            "shingle color",
+            "blend"
+          ]
+        }
+      }
+    },
+    "metal_roof_panel": {
+      "label": "Metal Roof Panel",
+      "dept": "Building Products",
+      "class": "Roofing",
+      "keywords": [
+        "metal panel",
+        "premier rib",
+        "rib xl",
+        "standing seam",
+        "corrugated panel",
+        "metal roofing"
+      ],
+      "attributes": {
+        "panel_profile": {
+          "label": "Panel Profile",
+          "datatype": "string",
+          "required": true,
+          "aliases": [
+            "profile",
+            "rib profile"
+          ]
+        },
+        "panel_length_ft": {
+          "label": "Panel Length",
+          "datatype": "number",
+          "unit": "ft",
+          "unit_family": "length_ft",
+          "min": 1,
+          "max": 60,
+          "required": true,
+          "aliases": [
+            "length",
+            "panel length"
+          ]
+        },
+        "panel_width_in": {
+          "label": "Panel Coverage Width",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 6,
+          "max": 60,
+          "aliases": [
+            "width",
+            "coverage width"
+          ]
+        },
+        "steel_gauge": {
+          "label": "Gauge",
+          "datatype": "number",
+          "min": 18,
+          "max": 32,
+          "aliases": [
+            "gauge",
+            "ga",
+            "metal thickness"
+          ]
+        },
+        "panel_finish": {
+          "label": "Finish",
+          "datatype": "string",
+          "aliases": [
+            "coating",
+            "paint system",
+            "finish"
+          ]
+        },
+        "color": {
+          "label": "Color",
+          "datatype": "string",
+          "aliases": [
+            "panel color"
+          ]
+        }
+      }
+    },
+    "roofing_underlayment": {
+      "label": "Underlayment & Ice Guard",
+      "dept": "Building Products",
+      "class": "Roofing",
+      "keywords": [
+        "ice guard",
+        "eaveguard",
+        "underlayment",
+        "weather lock",
+        "ice & water",
+        "felt",
+        "synthetic underlayment",
+        "deck joist tape"
+      ],
+      "attributes": {
+        "roll_coverage_sqft": {
+          "label": "Roll Coverage",
+          "datatype": "number",
+          "unit": "sq ft",
+          "unit_family": "area_sqft",
+          "min": 0,
+          "max": 5000,
+          "required": true,
+          "aliases": [
+            "coverage",
+            "roll coverage",
+            "square coverage"
+          ]
+        },
+        "roll_length_ft": {
+          "label": "Roll Length",
+          "datatype": "number",
+          "unit": "ft",
+          "unit_family": "length_ft",
+          "min": 1,
+          "max": 500,
+          "aliases": [
+            "length",
+            "roll length"
+          ]
+        },
+        "roll_width_in": {
+          "label": "Roll Width",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 1,
+          "max": 120,
+          "required": true,
+          "aliases": [
+            "width",
+            "roll width"
+          ]
+        },
+        "membrane_type": {
+          "label": "Membrane Type",
+          "datatype": "enum",
+          "enum": [
+            "Ice & Water Barrier",
+            "Synthetic Underlayment",
+            "Asphalt Felt",
+            "Butyl Tape",
+            "Flashing Tape"
+          ],
+          "aliases": [
+            "type",
+            "product type"
+          ]
+        },
+        "self_adhered": {
+          "label": "Self Adhered",
+          "datatype": "boolean",
+          "aliases": [
+            "self adhering",
+            "peel and stick"
+          ]
+        }
+      }
+    },
+    "drywall_panel": {
+      "label": "Drywall Panel",
+      "dept": "Building Products",
+      "class": "Panels & Lumber",
+      "keywords": [
+        "drywall",
+        "gypsum",
+        "easi-lite",
+        "firelite",
+        "wallboard",
+        "sheetrock"
+      ],
+      "attributes": {
+        "panel_thickness_in": {
+          "label": "Panel Thickness",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.1,
+          "max": 2,
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "thickness"
+          ]
+        },
+        "panel_width_ft": {
+          "label": "Panel Width",
+          "datatype": "number",
+          "unit": "ft",
+          "unit_family": "length_ft",
+          "min": 1,
+          "max": 8,
+          "required": true,
+          "aliases": [
+            "width"
+          ]
+        },
+        "panel_length_ft": {
+          "label": "Panel Length",
+          "datatype": "number",
+          "unit": "ft",
+          "unit_family": "length_ft",
+          "min": 4,
+          "max": 20,
+          "required": true,
+          "aliases": [
+            "length",
+            "sheet length"
+          ]
+        },
+        "board_type": {
+          "label": "Board Type",
+          "datatype": "enum",
+          "enum": [
+            "Regular",
+            "Type X Fire Rated",
+            "Type C",
+            "Lightweight",
+            "Moisture Resistant",
+            "Mold Resistant",
+            "Abuse Resistant"
+          ],
+          "aliases": [
+            "type",
+            "core type",
+            "grade"
+          ]
+        },
+        "edge_type": {
+          "label": "Edge Type",
+          "datatype": "enum",
+          "enum": [
+            "Tapered",
+            "Square",
+            "Rounded Tapered"
+          ],
+          "aliases": [
+            "edge"
+          ]
+        }
+      }
+    },
+    "lumber_panel": {
+      "label": "Lumber & Structural Panel",
+      "dept": "Building Products",
+      "class": "Panels & Lumber",
+      "keywords": [
+        "plywood",
+        "osb",
+        "lumber",
+        "stud",
+        "sheathing",
+        "lvl",
+        "joist",
+        "treated"
+      ],
+      "attributes": {
+        "nominal_thickness_in": {
+          "label": "Nominal Thickness",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.1,
+          "max": 24,
+          "required": true,
+          "aliases": [
+            "thickness",
+            "nominal thickness"
+          ]
+        },
+        "nominal_width_in": {
+          "label": "Nominal Width",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 1,
+          "max": 96,
+          "aliases": [
+            "width",
+            "nominal width"
+          ]
+        },
+        "board_length_ft": {
+          "label": "Length",
+          "datatype": "number",
+          "unit": "ft",
+          "unit_family": "length_ft",
+          "min": 1,
+          "max": 60,
+          "required": true,
+          "aliases": [
+            "length",
+            "stock length"
+          ]
+        },
+        "panel_type": {
+          "label": "Panel Type",
+          "datatype": "enum",
+          "enum": [
+            "Plywood",
+            "OSB",
+            "Dimensional Lumber",
+            "LVL",
+            "Rim Board",
+            "I-Joist",
+            "Treated Lumber"
+          ],
+          "aliases": [
+            "type",
+            "product type"
+          ]
+        },
+        "species_grade": {
+          "label": "Species / Grade",
+          "datatype": "string",
+          "aliases": [
+            "species",
+            "grade",
+            "wood species"
+          ]
+        },
+        "treatment": {
+          "label": "Treatment",
+          "datatype": "string",
+          "aliases": [
+            "preservative",
+            "treated"
+          ]
+        }
+      }
+    },
+    "ceiling_tile": {
+      "label": "Ceiling Tile",
+      "dept": "Building Products",
+      "class": "Panels & Lumber",
+      "keywords": [
+        "ceiling tile",
+        "fissured",
+        "acoustical panel",
+        "lay-in",
+        "drop ceiling",
+        "grid panel"
+      ],
+      "attributes": {
+        "tile_width_in": {
+          "label": "Tile Width",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 6,
+          "max": 96,
+          "required": true,
+          "aliases": [
+            "width",
+            "panel width"
+          ]
+        },
+        "tile_length_in": {
+          "label": "Tile Length",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 6,
+          "max": 120,
+          "required": true,
+          "aliases": [
+            "length",
+            "panel length"
+          ]
+        },
+        "edge_detail": {
+          "label": "Edge Detail",
+          "datatype": "enum",
+          "enum": [
+            "Square Lay-In",
+            "Tegular",
+            "Beveled",
+            "Concealed"
+          ],
+          "aliases": [
+            "edge",
+            "edge profile"
+          ]
+        },
+        "surface_pattern": {
+          "label": "Surface Pattern",
+          "datatype": "string",
+          "aliases": [
+            "pattern",
+            "texture"
+          ]
+        },
+        "nrc_rating": {
+          "label": "NRC",
+          "datatype": "number",
+          "min": 0,
+          "max": 1.2,
+          "aliases": [
+            "nrc",
+            "noise reduction coefficient"
+          ]
+        },
+        "fire_class": {
+          "label": "Fire Class",
+          "datatype": "enum",
+          "enum": [
+            "Class A",
+            "Class B",
+            "Class C"
+          ],
+          "aliases": [
+            "fire rating",
+            "flame spread class"
+          ]
+        }
+      }
+    },
+    "window_unit": {
+      "label": "Window",
+      "dept": "Building Products",
+      "class": "Windows, Doors & Skylights",
+      "keywords": [
+        "window",
+        "slider",
+        "single hung",
+        "double hung",
+        "casement",
+        "picture window",
+        "lowe",
+        "low-e"
+      ],
+      "attributes": {
+        "window_type": {
+          "label": "Window Type",
+          "datatype": "enum",
+          "enum": [
+            "Slider",
+            "Single Hung",
+            "Double Hung",
+            "Casement",
+            "Picture",
+            "Awning",
+            "Bay",
+            "Basement Hopper"
+          ],
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "type",
+            "operation",
+            "style"
+          ]
+        },
+        "rough_opening_width_in": {
+          "label": "Rough Opening Width",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 6,
+          "max": 200,
+          "required": true,
+          "aliases": [
+            "ro width",
+            "rough opening width",
+            "width"
+          ]
+        },
+        "rough_opening_height_in": {
+          "label": "Rough Opening Height",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 6,
+          "max": 200,
+          "required": true,
+          "aliases": [
+            "ro height",
+            "rough opening height",
+            "height"
+          ]
+        },
+        "frame_material": {
+          "label": "Frame Material",
+          "datatype": "enum",
+          "enum": [
+            "Vinyl",
+            "Aluminum",
+            "Wood",
+            "Fiberglass",
+            "Composite"
+          ],
+          "aliases": [
+            "material",
+            "frame"
+          ]
+        },
+        "glazing_type": {
+          "label": "Glazing",
+          "datatype": "string",
+          "aliases": [
+            "glass",
+            "glazing",
+            "glass package"
+          ]
+        },
+        "exterior_color": {
+          "label": "Exterior Color",
+          "datatype": "string",
+          "aliases": [
+            "ext color",
+            "exterior finish"
+          ]
+        },
+        "interior_color": {
+          "label": "Interior Color",
+          "datatype": "string",
+          "aliases": [
+            "int color",
+            "interior finish"
+          ]
+        },
+        "screen_included": {
+          "label": "Screen Included",
+          "datatype": "boolean",
+          "aliases": [
+            "with screen",
+            "screen"
+          ]
+        },
+        "grid_pattern": {
+          "label": "Grid Pattern",
+          "datatype": "string",
+          "aliases": [
+            "grille",
+            "grid",
+            "muntin"
+          ]
+        }
+      }
+    },
+    "skylight": {
+      "label": "Skylight",
+      "dept": "Building Products",
+      "class": "Windows, Doors & Skylights",
+      "keywords": [
+        "skylight",
+        "skylt",
+        "sun tunnel",
+        "roof window"
+      ],
+      "attributes": {
+        "skylight_type": {
+          "label": "Skylight Type",
+          "datatype": "enum",
+          "enum": [
+            "Fixed",
+            "Manual Venting",
+            "Electric Venting",
+            "Solar Venting",
+            "Sun Tunnel"
+          ],
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "type",
+            "operation"
+          ]
+        },
+        "rough_opening_width_in": {
+          "label": "Rough Opening Width",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 6,
+          "max": 120,
+          "required": true,
+          "aliases": [
+            "ro width",
+            "rough opening width",
+            "width"
+          ]
+        },
+        "rough_opening_height_in": {
+          "label": "Rough Opening Height",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 6,
+          "max": 120,
+          "required": true,
+          "aliases": [
+            "ro height",
+            "rough opening height",
+            "height"
+          ]
+        },
+        "glazing_type": {
+          "label": "Glazing",
+          "datatype": "string",
+          "aliases": [
+            "glass",
+            "glazing",
+            "pane"
+          ]
+        },
+        "shade_included": {
+          "label": "Shade Included",
+          "datatype": "boolean",
+          "aliases": [
+            "with shade",
+            "blind included"
+          ]
+        },
+        "frame_finish": {
+          "label": "Frame Finish",
+          "datatype": "string",
+          "aliases": [
+            "finish",
+            "frame color"
+          ]
+        }
+      }
+    },
+    "door_hardware": {
+      "label": "Door Hardware & Threshold",
+      "dept": "Building Products",
+      "class": "Windows, Doors & Skylights",
+      "keywords": [
+        "threshold",
+        "door sweep",
+        "jamb",
+        "hinge",
+        "lockset",
+        "weatherstrip",
+        "astragal",
+        "door bottom"
+      ],
+      "attributes": {
+        "hardware_type": {
+          "label": "Hardware Type",
+          "datatype": "enum",
+          "enum": [
+            "Threshold",
+            "Door Sweep",
+            "Weatherstrip",
+            "Hinge",
+            "Lockset",
+            "Astragal",
+            "Jamb"
+          ],
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "type",
+            "product type"
+          ]
+        },
+        "hardware_length_in": {
+          "label": "Length",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 1,
+          "max": 200,
+          "required": true,
+          "aliases": [
+            "length",
+            "size"
+          ]
+        },
+        "hardware_width_in": {
+          "label": "Width",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.5,
+          "max": 24,
+          "aliases": [
+            "width"
+          ]
+        },
+        "hardware_material": {
+          "label": "Material",
+          "datatype": "enum",
+          "enum": [
+            "Aluminum",
+            "Steel",
+            "Stainless Steel",
+            "Brass",
+            "Bronze",
+            "Vinyl",
+            "Wood"
+          ],
+          "aliases": [
+            "material",
+            "body material"
+          ]
+        },
+        "hardware_finish": {
+          "label": "Finish",
+          "datatype": "string",
+          "aliases": [
+            "finish",
+            "color",
+            "coating"
+          ]
+        }
+      }
+    },
+    "tape_sealant": {
+      "label": "Tape & Sealant",
+      "dept": "Building Products",
+      "class": "Sealants, Tapes & Mortar",
+      "keywords": [
+        "tape",
+        "emseal",
+        "protecto wrap",
+        "sealant",
+        "caulk",
+        "flashing tape",
+        "joist tape",
+        "electrical tape"
+      ],
+      "attributes": {
+        "product_form": {
+          "label": "Product Form",
+          "datatype": "enum",
+          "enum": [
+            "Tape",
+            "Sealant",
+            "Caulk",
+            "Expanding Foam Tape",
+            "Adhesive"
+          ],
+          "required": true,
+          "aliases": [
+            "form",
+            "type"
+          ]
+        },
+        "tape_width_in": {
+          "label": "Width",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.1,
+          "max": 60,
+          "required": true,
+          "aliases": [
+            "width",
+            "tape width"
+          ]
+        },
+        "roll_length_ft": {
+          "label": "Roll Length",
+          "datatype": "number",
+          "unit": "ft",
+          "unit_family": "length_ft",
+          "min": 0.5,
+          "max": 2000,
+          "required": true,
+          "aliases": [
+            "length",
+            "roll length",
+            "footage"
+          ]
+        },
+        "adhesive_type": {
+          "label": "Adhesive Type",
+          "datatype": "string",
+          "aliases": [
+            "adhesive",
+            "adhesion type"
+          ]
+        },
+        "substrate_use": {
+          "label": "Intended Substrate",
+          "datatype": "string",
+          "aliases": [
+            "substrate",
+            "use on",
+            "surface"
+          ]
+        }
+      }
+    },
+    "mortar_cement": {
+      "label": "Mortar & Cement",
+      "dept": "Building Products",
+      "class": "Sealants, Tapes & Mortar",
+      "keywords": [
+        "mortar",
+        "type n",
+        "type s",
+        "type m",
+        "masonry cement",
+        "grout",
+        "stucco"
+      ],
+      "attributes": {
+        "mortar_type": {
+          "label": "Mortar Type",
+          "datatype": "enum",
+          "enum": [
+            "Type N",
+            "Type S",
+            "Type M",
+            "Type O",
+            "Grout"
+          ],
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "type",
+            "mix type",
+            "classification"
+          ]
+        },
+        "color_name": {
+          "label": "Color Name",
+          "datatype": "string",
+          "required": true,
+          "aliases": [
+            "color",
+            "colour",
+            "shade",
+            "blend"
+          ]
+        },
+        "color_code": {
+          "label": "Color Code",
+          "datatype": "string",
+          "aliases": [
+            "code",
+            "formula",
+            "color number"
+          ]
+        },
+        "bag_weight_lb": {
+          "label": "Bag Weight",
+          "datatype": "number",
+          "unit": "lb",
+          "unit_family": "mass_lb",
+          "min": 1,
+          "max": 200,
+          "aliases": [
+            "bag size",
+            "weight",
+            "unit weight"
+          ]
+        },
+        "coverage_sqft": {
+          "label": "Coverage",
+          "datatype": "number",
+          "unit": "sq ft",
+          "unit_family": "area_sqft",
+          "min": 0,
+          "max": 2000,
+          "aliases": [
+            "coverage",
+            "yield"
+          ]
+        }
+      }
+    },
+    "led_lamp": {
+      "label": "LED Lamp",
+      "dept": "Lighting & Electrical",
+      "class": "Lamps",
+      "keywords": [
+        "led",
+        "bulb",
+        "lamp",
+        "a19",
+        "a21",
+        "br30",
+        "br40",
+        "par38",
+        "par30",
+        "st19",
+        "mr16",
+        "gu10",
+        "filament",
+        "led bulb",
+        "led lamp",
+        "light bulb",
+        "led st",
+        "led br",
+        "led par",
+        "led a19",
+        "led med",
+        "filament bulb"
+      ],
+      "attributes": {
+        "wattage_w": {
+          "label": "Wattage",
+          "datatype": "number",
+          "unit": "W",
+          "unit_family": "power_w",
+          "min": 0.1,
+          "max": 1000,
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "watt",
+            "watts",
+            "power",
+            "actual wattage"
+          ]
+        },
+        "equivalent_wattage_w": {
+          "label": "Incandescent Equivalent",
+          "datatype": "number",
+          "unit": "W",
+          "unit_family": "power_w",
+          "min": 1,
+          "max": 1000,
+          "aliases": [
+            "equivalent",
+            "replacement wattage",
+            "equiv"
+          ]
+        },
+        "lumens_lm": {
+          "label": "Lumens",
+          "datatype": "number",
+          "unit": "lm",
+          "unit_family": "luminous_flux",
+          "min": 1,
+          "max": 30000,
+          "aliases": [
+            "lumen output",
+            "brightness",
+            "light output"
+          ]
+        },
+        "color_temperature_k": {
+          "label": "Color Temperature",
+          "datatype": "number",
+          "unit": "K",
+          "unit_family": "color_temperature",
+          "min": 1500,
+          "max": 7000,
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "color temp",
+            "cct",
+            "kelvin",
+            "temperature"
+          ]
+        },
+        "bulb_shape": {
+          "label": "Bulb Shape",
+          "datatype": "enum",
+          "enum": [
+            "A19",
+            "A21",
+            "A15",
+            "BR30",
+            "BR40",
+            "PAR16",
+            "PAR20",
+            "PAR30",
+            "PAR38",
+            "ST19",
+            "ST64",
+            "MR16",
+            "T8",
+            "G25",
+            "B11",
+            "GU10"
+          ],
+          "required": true,
+          "aliases": [
+            "shape",
+            "bulb type",
+            "form factor"
+          ]
+        },
+        "base_type": {
+          "label": "Base Type",
+          "datatype": "enum",
+          "enum": [
+            "E26 Medium",
+            "E12 Candelabra",
+            "E39 Mogul",
+            "GU10",
+            "GU24",
+            "GX23",
+            "G13",
+            "Bi-Pin"
+          ],
+          "aliases": [
+            "base",
+            "socket",
+            "cap",
+            "med",
+            "medium base"
+          ]
+        },
+        "voltage_v": {
+          "label": "Voltage",
+          "datatype": "number",
+          "unit": "V",
+          "unit_family": "voltage",
+          "min": 1,
+          "max": 600,
+          "aliases": [
+            "volt",
+            "volts",
+            "operating voltage"
+          ]
+        },
+        "dimmable": {
+          "label": "Dimmable",
+          "datatype": "boolean",
+          "aliases": [
+            "dimming",
+            "is dimmable"
+          ]
+        },
+        "cri": {
+          "label": "CRI",
+          "datatype": "number",
+          "min": 0,
+          "max": 100,
+          "aliases": [
+            "color rendering index",
+            "ra"
+          ]
+        },
+        "rated_life_hours": {
+          "label": "Rated Life",
+          "datatype": "number",
+          "unit": "hr",
+          "min": 100,
+          "max": 200000,
+          "aliases": [
+            "life",
+            "lifetime",
+            "rated hours"
+          ]
+        },
+        "beam_angle_deg": {
+          "label": "Beam Angle",
+          "datatype": "number",
+          "unit": "deg",
+          "min": 1,
+          "max": 360,
+          "aliases": [
+            "beam spread",
+            "beam angle"
+          ]
+        }
+      }
+    },
+    "light_fixture": {
+      "label": "Light Fixture",
+      "dept": "Lighting & Electrical",
+      "class": "Light Fixtures",
+      "keywords": [
+        "chandelier",
+        "pendant",
+        "sconce",
+        "vanity",
+        "flush mount",
+        "semi-flush",
+        "wall light",
+        "landscape light",
+        "path light",
+        "fixture",
+        "downlight",
+        "troffer",
+        "pendant light",
+        "wall sconce",
+        "vanity light",
+        "outdoor wall"
+      ],
+      "attributes": {
+        "fixture_type": {
+          "label": "Fixture Type",
+          "datatype": "enum",
+          "enum": [
+            "Chandelier",
+            "Pendant",
+            "Wall Sconce",
+            "Vanity Light",
+            "Flush Mount",
+            "Semi-Flush Mount",
+            "Landscape Light",
+            "Outdoor Wall Light",
+            "Recessed Downlight",
+            "Track Light",
+            "Ceiling Fan Light"
+          ],
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "type",
+            "style",
+            "fixture style"
+          ]
+        },
+        "light_count": {
+          "label": "Number of Lights",
+          "datatype": "number",
+          "min": 1,
+          "max": 40,
+          "required": true,
+          "aliases": [
+            "lights",
+            "number of bulbs",
+            "lamp count",
+            "lt",
+            "light"
+          ]
+        },
+        "max_wattage_w": {
+          "label": "Maximum Wattage",
+          "datatype": "number",
+          "unit": "W",
+          "unit_family": "power_w",
+          "min": 1,
+          "max": 2000,
+          "aliases": [
+            "max watt",
+            "wattage",
+            "bulb wattage"
+          ]
+        },
+        "bulb_base_type": {
+          "label": "Bulb Base",
+          "datatype": "enum",
+          "enum": [
+            "E26 Medium",
+            "E12 Candelabra",
+            "GU10",
+            "GU24",
+            "Integrated LED"
+          ],
+          "aliases": [
+            "base",
+            "socket type"
+          ]
+        },
+        "fixture_width_in": {
+          "label": "Fixture Width",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 1,
+          "max": 200,
+          "aliases": [
+            "width",
+            "diameter"
+          ]
+        },
+        "fixture_height_in": {
+          "label": "Fixture Height",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 1,
+          "max": 200,
+          "aliases": [
+            "height",
+            "body height"
+          ]
+        },
+        "fixture_finish": {
+          "label": "Finish",
+          "datatype": "string",
+          "required": true,
+          "aliases": [
+            "finish",
+            "color",
+            "bk",
+            "black"
+          ]
+        },
+        "mounting_type": {
+          "label": "Mounting",
+          "datatype": "enum",
+          "enum": [
+            "Ceiling",
+            "Wall",
+            "Pendant/Chain",
+            "Recessed",
+            "Ground Stake",
+            "Post"
+          ],
+          "aliases": [
+            "mount",
+            "installation"
+          ]
+        },
+        "location_rating": {
+          "label": "Location Rating",
+          "datatype": "enum",
+          "enum": [
+            "Dry",
+            "Damp",
+            "Wet"
+          ],
+          "aliases": [
+            "damp rated",
+            "wet rated",
+            "rating"
+          ]
+        }
+      }
+    },
+    "wiring_device": {
+      "label": "Wiring Device",
+      "dept": "Lighting & Electrical",
+      "class": "Wiring Devices",
+      "keywords": [
+        "receptacle",
+        "outlet",
+        "switch",
+        "dimmer",
+        "gfci",
+        "wall plate",
+        "toggle",
+        "decora",
+        "usb charger outlet"
+      ],
+      "attributes": {
+        "device_type": {
+          "label": "Device Type",
+          "datatype": "enum",
+          "enum": [
+            "Receptacle",
+            "GFCI Receptacle",
+            "Toggle Switch",
+            "Decorator Switch",
+            "Dimmer",
+            "Wall Plate",
+            "Timer",
+            "Occupancy Sensor"
+          ],
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "type",
+            "product type"
+          ]
+        },
+        "amperage_a": {
+          "label": "Amperage",
+          "datatype": "number",
+          "unit": "A",
+          "unit_family": "current",
+          "min": 1,
+          "max": 200,
+          "required": true,
+          "aliases": [
+            "amp",
+            "amps",
+            "current rating",
+            "amperage rating"
+          ]
+        },
+        "voltage_v": {
+          "label": "Voltage",
+          "datatype": "number",
+          "unit": "V",
+          "unit_family": "voltage",
+          "min": 1,
+          "max": 600,
+          "required": true,
+          "aliases": [
+            "volt",
+            "volts",
+            "voltage rating"
+          ]
+        },
+        "pole_count": {
+          "label": "Poles",
+          "datatype": "number",
+          "min": 1,
+          "max": 4,
+          "aliases": [
+            "poles",
+            "way",
+            "single pole",
+            "3-way"
+          ]
+        },
+        "device_grade": {
+          "label": "Grade",
+          "datatype": "enum",
+          "enum": [
+            "Residential",
+            "Commercial",
+            "Industrial Spec"
+          ],
+          "aliases": [
+            "grade",
+            "duty"
+          ]
+        },
+        "device_color": {
+          "label": "Color",
+          "datatype": "string",
+          "aliases": [
+            "color",
+            "finish"
+          ]
+        },
+        "tamper_resistant": {
+          "label": "Tamper Resistant",
+          "datatype": "boolean",
+          "aliases": [
+            "tr",
+            "tamper proof"
+          ]
+        }
+      }
+    },
+    "cordless_power_tool": {
+      "label": "Cordless Power Tool",
+      "dept": "Tools & Accessories",
+      "class": "Power Tools",
+      "keywords": [
+        "cordless",
+        "impact driver",
+        "drill driver",
+        "blower",
+        "grinder",
+        "polisher",
+        "sander",
+        "circular saw",
+        "recip saw",
+        "bare tool",
+        "xr",
+        "fuel",
+        "lxt",
+        "cordless drill",
+        "impact wrench",
+        "reciprocating saw",
+        "angle grinder",
+        "cordless blower",
+        "cordless sander",
+        "cordless polisher",
+        "rotary hammer",
+        "oscillating tool",
+        "tool only"
+      ],
+      "attributes": {
+        "tool_type": {
+          "label": "Tool Type",
+          "datatype": "string",
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "type",
+            "tool",
+            "product type"
+          ]
+        },
+        "battery_platform_v": {
+          "label": "Battery Platform",
+          "datatype": "number",
+          "unit": "V",
+          "unit_family": "voltage",
+          "min": 3,
+          "max": 120,
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "voltage",
+            "volt",
+            "platform",
+            "battery voltage",
+            "max voltage"
+          ]
+        },
+        "chuck_size_in": {
+          "label": "Chuck / Drive Size",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.1,
+          "max": 3,
+          "aliases": [
+            "chuck",
+            "drive size",
+            "chuck size"
+          ]
+        },
+        "no_load_speed_rpm": {
+          "label": "No-Load Speed",
+          "datatype": "number",
+          "unit": "rpm",
+          "unit_family": "speed",
+          "min": 1,
+          "max": 60000,
+          "aliases": [
+            "speed",
+            "rpm",
+            "no load speed"
+          ]
+        },
+        "torque_in_lb": {
+          "label": "Max Torque",
+          "datatype": "number",
+          "unit": "in-lb",
+          "min": 1,
+          "max": 5000,
+          "aliases": [
+            "torque",
+            "max torque"
+          ]
+        },
+        "brushless": {
+          "label": "Brushless Motor",
+          "datatype": "boolean",
+          "aliases": [
+            "brushless",
+            "bl motor"
+          ]
+        },
+        "battery_included": {
+          "label": "Battery Included",
+          "datatype": "boolean",
+          "aliases": [
+            "bare tool",
+            "tool only",
+            "kit",
+            "with battery"
+          ]
+        },
+        "blade_or_disc_size_in": {
+          "label": "Blade / Pad Size",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.5,
+          "max": 24,
+          "aliases": [
+            "blade size",
+            "pad size",
+            "disc size"
+          ]
+        }
+      }
+    },
+    "battery_charger": {
+      "label": "Battery & Charger",
+      "dept": "Tools & Accessories",
+      "class": "Power Tools",
+      "keywords": [
+        "battery",
+        "charger",
+        "starter kit",
+        "power supply",
+        "jumpstart",
+        "ah",
+        "amp hour",
+        "battery pack"
+      ],
+      "attributes": {
+        "item_type": {
+          "label": "Item Type",
+          "datatype": "enum",
+          "enum": [
+            "Battery Pack",
+            "Charger",
+            "Starter Kit",
+            "Power Supply",
+            "Jump Starter"
+          ],
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "type",
+            "product type"
+          ]
+        },
+        "battery_voltage_v": {
+          "label": "Voltage",
+          "datatype": "number",
+          "unit": "V",
+          "unit_family": "voltage",
+          "min": 1,
+          "max": 120,
+          "required": true,
+          "aliases": [
+            "voltage",
+            "volt",
+            "platform"
+          ]
+        },
+        "amp_hours_ah": {
+          "label": "Amp Hours",
+          "datatype": "number",
+          "unit": "Ah",
+          "min": 0.1,
+          "max": 50,
+          "aliases": [
+            "ah",
+            "capacity",
+            "amp hour"
+          ]
+        },
+        "cell_chemistry": {
+          "label": "Chemistry",
+          "datatype": "enum",
+          "enum": [
+            "Lithium-Ion",
+            "NiCd",
+            "NiMH",
+            "Lead Acid"
+          ],
+          "aliases": [
+            "chemistry",
+            "cell type"
+          ]
+        },
+        "charge_time_min": {
+          "label": "Charge Time",
+          "datatype": "number",
+          "unit": "min",
+          "min": 1,
+          "max": 1440,
+          "aliases": [
+            "charge time",
+            "charging time"
+          ]
+        },
+        "included_count": {
+          "label": "Batteries Included",
+          "datatype": "number",
+          "min": 0,
+          "max": 20,
+          "aliases": [
+            "battery count",
+            "included batteries"
+          ]
+        }
+      }
+    },
+    "saw_blade": {
+      "label": "Saw Blade",
+      "dept": "Tools & Accessories",
+      "class": "Cutting & Abrasives",
+      "keywords": [
+        "blade",
+        "saw blade",
+        "cut-off",
+        "cutoff disc",
+        "circular saw blade",
+        "recip blade",
+        "hole saw",
+        "reciprocating blade",
+        "jig saw blade",
+        "band saw blade",
+        "diamond blade"
+      ],
+      "attributes": {
+        "blade_diameter_in": {
+          "label": "Blade Diameter",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.5,
+          "max": 30,
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "diameter",
+            "size",
+            "blade size"
+          ]
+        },
+        "tooth_count": {
+          "label": "Tooth Count",
+          "datatype": "number",
+          "min": 1,
+          "max": 400,
+          "aliases": [
+            "teeth",
+            "tpi",
+            "tooth"
+          ]
+        },
+        "arbor_size_in": {
+          "label": "Arbor Size",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.1,
+          "max": 3,
+          "aliases": [
+            "arbor",
+            "bore",
+            "shank"
+          ]
+        },
+        "blade_material": {
+          "label": "Blade Material",
+          "datatype": "enum",
+          "enum": [
+            "Carbide Tipped",
+            "High Speed Steel",
+            "Bi-Metal",
+            "Diamond",
+            "Abrasive"
+          ],
+          "aliases": [
+            "material",
+            "tooth material"
+          ]
+        },
+        "cut_material": {
+          "label": "Cuts",
+          "datatype": "string",
+          "required": true,
+          "aliases": [
+            "application",
+            "cutting material",
+            "for cutting"
+          ]
+        },
+        "kerf_in": {
+          "label": "Kerf",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.01,
+          "max": 1,
+          "aliases": [
+            "kerf",
+            "cut width"
+          ]
+        }
+      }
+    },
+    "drill_driver_bit": {
+      "label": "Drill & Driver Bit",
+      "dept": "Tools & Accessories",
+      "class": "Cutting & Abrasives",
+      "keywords": [
+        "bit",
+        "drill bit",
+        "driver bit",
+        "spade bit",
+        "auger",
+        "step bit",
+        "router bit",
+        "impact bit",
+        "countersink"
+      ],
+      "attributes": {
+        "bit_type": {
+          "label": "Bit Type",
+          "datatype": "string",
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "type",
+            "style"
+          ]
+        },
+        "bit_diameter_in": {
+          "label": "Bit Diameter",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.01,
+          "max": 6,
+          "required": true,
+          "aliases": [
+            "diameter",
+            "size",
+            "cutting diameter"
+          ]
+        },
+        "bit_length_in": {
+          "label": "Overall Length",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.5,
+          "max": 48,
+          "aliases": [
+            "length",
+            "overall length"
+          ]
+        },
+        "shank_type": {
+          "label": "Shank Type",
+          "datatype": "enum",
+          "enum": [
+            "Hex",
+            "Round",
+            "SDS-Plus",
+            "SDS-Max",
+            "Impact Hex",
+            "Reduced"
+          ],
+          "aliases": [
+            "shank",
+            "drive"
+          ]
+        },
+        "bit_material": {
+          "label": "Material",
+          "datatype": "enum",
+          "enum": [
+            "High Speed Steel",
+            "Cobalt",
+            "Carbide Tipped",
+            "Titanium Coated",
+            "Black Oxide"
+          ],
+          "aliases": [
+            "material",
+            "construction"
+          ]
+        }
+      }
+    },
+    "abrasive_product": {
+      "label": "Abrasive",
+      "dept": "Tools & Accessories",
+      "class": "Cutting & Abrasives",
+      "keywords": [
+        "sanding",
+        "abrasive",
+        "sandpaper",
+        "grit",
+        "stikit",
+        "hiolit",
+        "abranet",
+        "cubitron",
+        "sanding belt",
+        "sanding disc",
+        "flap disc",
+        "cut off disc",
+        "cut-off disc",
+        "cutoff disc",
+        "cut off",
+        "grinding disc",
+        "cut and grind",
+        "grinding wheel",
+        "sanding sheet",
+        "abrasive disc"
+      ],
+      "attributes": {
+        "abrasive_form": {
+          "label": "Abrasive Form",
+          "datatype": "enum",
+          "enum": [
+            "Disc",
+            "Belt",
+            "Sheet",
+            "Roll",
+            "Flap Disc",
+            "Pad",
+            "Mesh"
+          ],
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "form",
+            "type",
+            "product form"
+          ]
+        },
+        "grit": {
+          "label": "Grit",
+          "datatype": "number",
+          "min": 12,
+          "max": 5000,
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "grit size",
+            "grade",
+            "p grade",
+            "grit rating"
+          ]
+        },
+        "abrasive_diameter_in": {
+          "label": "Diameter",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.5,
+          "max": 30,
+          "aliases": [
+            "diameter",
+            "disc size",
+            "size"
+          ]
+        },
+        "abrasive_width_in": {
+          "label": "Width",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.1,
+          "max": 60,
+          "aliases": [
+            "width",
+            "belt width"
+          ]
+        },
+        "abrasive_length_in": {
+          "label": "Length",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.5,
+          "max": 400,
+          "aliases": [
+            "length",
+            "belt length"
+          ]
+        },
+        "attachment_type": {
+          "label": "Attachment",
+          "datatype": "enum",
+          "enum": [
+            "Hook & Loop",
+            "Stikit / PSA",
+            "Arbor",
+            "Quick Change",
+            "None"
+          ],
+          "aliases": [
+            "attachment",
+            "backing attachment",
+            "mount"
+          ]
+        },
+        "mineral_type": {
+          "label": "Mineral",
+          "datatype": "string",
+          "aliases": [
+            "abrasive material",
+            "mineral",
+            "grain"
+          ]
+        },
+        "backing_type": {
+          "label": "Backing",
+          "datatype": "string",
+          "aliases": [
+            "backing",
+            "substrate"
+          ]
+        },
+        "disc_thickness_in": {
+          "label": "Disc Thickness",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.01,
+          "max": 2,
+          "aliases": [
+            "thickness",
+            "disc thickness",
+            "wheel thickness"
+          ]
+        },
+        "arbor_size_in": {
+          "label": "Arbor Size",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 0.1,
+          "max": 3,
+          "aliases": [
+            "arbor",
+            "bore",
+            "center hole",
+            "mounting hole"
+          ]
+        }
+      }
+    },
+    "kitchen_appliance": {
+      "label": "Kitchen Appliance",
+      "dept": "Appliances",
+      "class": "Major Appliances",
+      "keywords": [
+        "range",
+        "dishwasher",
+        "refrigerator",
+        "microwave",
+        "cooktop",
+        "oven",
+        "freezer",
+        "hood",
+        "ge ",
+        "gas range",
+        "electric range",
+        "wall oven",
+        "built-in dishwasher"
+      ],
+      "attributes": {
+        "appliance_type": {
+          "label": "Appliance Type",
+          "datatype": "enum",
+          "enum": [
+            "Range",
+            "Wall Oven",
+            "Cooktop",
+            "Dishwasher",
+            "Refrigerator",
+            "Freezer",
+            "Microwave",
+            "Range Hood"
+          ],
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "type",
+            "product type"
+          ]
+        },
+        "fuel_type": {
+          "label": "Fuel Type",
+          "datatype": "enum",
+          "enum": [
+            "Electric",
+            "Gas",
+            "Dual Fuel",
+            "Induction",
+            "Propane"
+          ],
+          "aliases": [
+            "fuel",
+            "power source",
+            "energy source"
+          ]
+        },
+        "appliance_width_in": {
+          "label": "Width",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 10,
+          "max": 80,
+          "required": true,
+          "aliases": [
+            "width",
+            "nominal width",
+            "size"
+          ]
+        },
+        "capacity_cuft": {
+          "label": "Capacity",
+          "datatype": "number",
+          "unit": "cu ft",
+          "unit_family": "volume_cuft",
+          "min": 0.1,
+          "max": 60,
+          "aliases": [
+            "capacity",
+            "cu ft",
+            "volume"
+          ]
+        },
+        "finish_color": {
+          "label": "Finish",
+          "datatype": "string",
+          "required": true,
+          "aliases": [
+            "finish",
+            "color",
+            "ss",
+            "stainless"
+          ]
+        },
+        "voltage_v": {
+          "label": "Voltage",
+          "datatype": "number",
+          "unit": "V",
+          "unit_family": "voltage",
+          "min": 100,
+          "max": 600,
+          "aliases": [
+            "volt",
+            "volts"
+          ]
+        },
+        "amperage_a": {
+          "label": "Amperage",
+          "datatype": "number",
+          "unit": "A",
+          "unit_family": "current",
+          "min": 1,
+          "max": 100,
+          "aliases": [
+            "amp",
+            "amps",
+            "current"
+          ]
+        },
+        "energy_star": {
+          "label": "ENERGY STAR",
+          "datatype": "boolean",
+          "aliases": [
+            "energy star certified",
+            "energystar"
+          ]
+        }
+      }
+    },
+    "laundry_appliance": {
+      "label": "Laundry Appliance",
+      "dept": "Appliances",
+      "class": "Major Appliances",
+      "keywords": [
+        "washer",
+        "dryer",
+        "laundry center",
+        "stacked laundry",
+        "pedestal",
+        "gas dryer",
+        "electric dryer",
+        "washing machine"
+      ],
+      "attributes": {
+        "appliance_type": {
+          "label": "Appliance Type",
+          "datatype": "enum",
+          "enum": [
+            "Washer",
+            "Dryer",
+            "Laundry Center",
+            "Stacked Washer Dryer",
+            "Pedestal"
+          ],
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "type",
+            "product type"
+          ]
+        },
+        "fuel_type": {
+          "label": "Fuel Type",
+          "datatype": "enum",
+          "enum": [
+            "Electric",
+            "Gas"
+          ],
+          "aliases": [
+            "fuel",
+            "power source"
+          ]
+        },
+        "capacity_cuft": {
+          "label": "Capacity",
+          "datatype": "number",
+          "unit": "cu ft",
+          "unit_family": "volume_cuft",
+          "min": 0.1,
+          "max": 30,
+          "required": true,
+          "aliases": [
+            "capacity",
+            "cu ft",
+            "drum capacity"
+          ]
+        },
+        "appliance_width_in": {
+          "label": "Width",
+          "datatype": "number",
+          "unit": "in",
+          "unit_family": "length_in",
+          "min": 10,
+          "max": 60,
+          "aliases": [
+            "width",
+            "size"
+          ]
+        },
+        "load_type": {
+          "label": "Load Type",
+          "datatype": "enum",
+          "enum": [
+            "Top Load",
+            "Front Load"
+          ],
+          "aliases": [
+            "loading",
+            "door style"
+          ]
+        },
+        "finish_color": {
+          "label": "Finish",
+          "datatype": "string",
+          "aliases": [
+            "finish",
+            "color",
+            "wh",
+            "white"
+          ]
+        },
+        "voltage_v": {
+          "label": "Voltage",
+          "datatype": "number",
+          "unit": "V",
+          "unit_family": "voltage",
+          "min": 100,
+          "max": 600,
+          "aliases": [
+            "volt",
+            "volts"
+          ]
+        }
+      }
+    },
+    "work_apparel": {
+      "label": "Workwear & Safety",
+      "dept": "Safety & Workwear",
+      "class": "Personal Protection",
+      "keywords": [
+        "glove",
+        "heated glove",
+        "vest",
+        "jacket",
+        "kneeling pad",
+        "safety glasses",
+        "hard hat",
+        "respirator",
+        "knee pad"
+      ],
+      "attributes": {
+        "apparel_type": {
+          "label": "Item Type",
+          "datatype": "enum",
+          "enum": [
+            "Glove",
+            "Vest",
+            "Jacket",
+            "Knee Pad",
+            "Safety Glasses",
+            "Hard Hat",
+            "Respirator",
+            "Hearing Protection"
+          ],
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "type",
+            "product type"
+          ]
+        },
+        "apparel_size": {
+          "label": "Size",
+          "datatype": "enum",
+          "enum": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "One Size"
+          ],
+          "required": true,
+          "aliases": [
+            "size",
+            "garment size"
+          ]
+        },
+        "heated": {
+          "label": "Heated",
+          "datatype": "boolean",
+          "aliases": [
+            "heated",
+            "battery heated"
+          ]
+        },
+        "apparel_material": {
+          "label": "Material",
+          "datatype": "string",
+          "aliases": [
+            "material",
+            "shell material",
+            "fabric"
+          ]
+        },
+        "apparel_color": {
+          "label": "Color",
+          "datatype": "string",
+          "aliases": [
+            "color",
+            "colour",
+            "blk",
+            "black"
+          ]
+        },
+        "protection_rating": {
+          "label": "Protection Rating",
+          "datatype": "string",
+          "aliases": [
+            "cut level",
+            "ansi rating",
+            "impact rating"
+          ]
+        }
+      }
+    },
+    "general_product": {
+      "label": "General Product",
+      "dept": "General Merchandise",
+      "class": "General",
+      "keywords": [],
+      "attributes": {
+        "product_type": {
+          "label": "Product Type",
+          "datatype": "string",
+          "required": true,
+          "weight": 2,
+          "aliases": [
+            "type",
+            "item type"
+          ]
+        },
+        "size_description": {
+          "label": "Size",
+          "datatype": "string",
+          "aliases": [
+            "size",
+            "dimensions",
+            "measurement"
+          ]
+        },
+        "quantity_per_unit": {
+          "label": "Quantity Per Unit",
+          "datatype": "number",
+          "min": 1,
+          "max": 10000,
+          "aliases": [
+            "quantity",
+            "count",
+            "qty"
+          ]
+        },
+        "intended_use": {
+          "label": "Intended Use",
+          "datatype": "string",
+          "aliases": [
+            "use",
+            "application",
+            "purpose"
+          ]
+        }
+      }
+    }
+  },
+  "content_fields": {
+    "product_name_generic": {
+      "label": "Product Name",
+      "datatype": "string",
+      "aliases": [
+        "generic name",
+        "noun",
+        "product noun"
+      ]
+    },
+    "mobile_desc": {
+      "label": "Mobile Description",
+      "datatype": "string",
+      "aliases": [
+        "mobile description",
+        "mobile_desc"
+      ]
+    },
+    "invoice_desc": {
+      "label": "Invoice Description",
+      "datatype": "string",
+      "aliases": [
+        "invoice description",
+        "invoice_desc"
+      ]
+    },
+    "short_desc": {
+      "label": "Short Description",
+      "datatype": "string",
+      "aliases": [
+        "short description",
+        "short_desc"
+      ]
+    },
+    "long_desc": {
+      "label": "Long Description",
+      "datatype": "string",
+      "aliases": [
+        "long description",
+        "long_desc1",
+        "long_desc"
+      ]
+    },
+    "retail_desc": {
+      "label": "Retail Description",
+      "datatype": "string",
+      "aliases": [
+        "retail description",
+        "retail_desc"
+      ]
+    },
+    "marketing_description": {
+      "label": "Marketing Description",
+      "datatype": "string",
+      "aliases": [
+        "marketing copy",
+        "marketing description"
+      ]
+    },
+    "item_features": {
+      "label": "Item Features",
+      "datatype": "list",
+      "aliases": [
+        "features",
+        "feature bullets",
+        "bullets",
+        "item features"
+      ]
+    },
+    "with_clause": {
+      "label": "With",
+      "datatype": "string",
+      "aliases": [
+        "with",
+        "featuring"
+      ]
+    },
+    "includes": {
+      "label": "Includes",
+      "datatype": "string",
+      "aliases": [
+        "includes",
+        "included items",
+        "in the box"
+      ]
+    },
+    "application": {
+      "label": "Application",
+      "datatype": "list",
+      "aliases": [
+        "applications",
+        "used for",
+        "use cases"
+      ]
+    }
+  }
+}

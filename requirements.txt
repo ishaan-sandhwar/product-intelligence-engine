@@ -1,0 +1,35 @@
+# Product Intelligence Engine - runtime dependencies
+# Deliberately loose pins: the provider SDKs move fast and hard pins caused
+# pydantic-core mismatches during setup.
+
+# --- core ---
+pydantic>=2.10,<3
+python-dotenv>=1.0
+pandas>=2.2
+numpy>=2.0
+scikit-learn>=1.5
+networkx>=3.3
+rapidfuzz>=3.9
+
+# --- ui ---
+streamlit>=1.40
+plotly>=5.24
+
+# --- document intelligence ---
+pymupdf>=1.24
+pillow>=11.0
+openpyxl>=3.1
+
+# --- web ---
+httpx>=0.27
+beautifulsoup4>=4.12
+lxml>=5.3
+
+# --- llm providers (each optional at runtime; the client skips any without a key) ---
+anthropic>=0.40
+google-genai>=1.0
+openai>=1.55
+groq>=0.13
+
+# dev
+pytest>=8.0
