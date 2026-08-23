@@ -177,7 +177,11 @@ def slide_brief(slide) -> None:
         ("96%", "identity coverage"),
         ("100%", "taxonomy coverage"),
         ("83%", "auto-approved"),
-    ], top=4.42)
+    ], top=4.32)
+    add_label(slide, "With the model on a 100-row slice: quality 59.6 → 72.4, all six content "
+                     "columns filled, 5.9 attribute triplets per product, 411 calls, zero "
+                     "rate-limit failures.",
+              BODY_LEFT, 5.22, BODY_WIDTH, size=9, color=MUTED)
 
 
 def slide_enrichment(slide) -> None:

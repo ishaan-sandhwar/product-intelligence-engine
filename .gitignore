@@ -27,6 +27,11 @@ outputs/exports/*
 !data/raw/Unihack_ Sample Dataset - Input.csv
 !outputs/exports/submission_*.csv
 
+# The processed catalogue ships too, so the deployed app opens with 1,000
+# products already in it instead of an empty database. The -wal/-shm sidecars
+# stay ignored; the snapshot is checkpointed before committing.
+!data/pie.db
+
 # Streamlit Cloud secrets - never committed.
 .streamlit/secrets.toml
 .llm_cache/

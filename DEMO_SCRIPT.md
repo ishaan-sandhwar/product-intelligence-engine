@@ -57,8 +57,9 @@ Point at `supplier` vs `manufacturer`.
 Switch to the LLM-enriched slice on **Export**.
 
 > "Now the model. It classifies what keywords could not, writes the six commerce
-> descriptions, and then judges its own output. Content coverage goes to 97%,
-> attribute triplets from 4.3 to 6.2 per product, quality to 78."
+> descriptions, and then judges its own output. Across a hundred rows: every one
+> of the content columns filled, attribute triplets from 2.6 to 5.9 per product,
+> quality from 59.6 to 72.4."
 
 Then the honest bit — this is the moment that wins the room:
 
