@@ -3,7 +3,7 @@
 **Six columns in, 252 columns out.** The supplied catalogue gives a part number,
 a 35-character description and three brand columns that are mostly placeholder
 markers. The delivery template asks for a full taxonomy path, six description
-variants, twenty feature bullets and sixty attribute triplets. Everything in
+variants, twenty feature bullets and fifty attribute triplets. Everything in
 between has to be recovered, and every recovered value has to be defensible.
 
 ---
@@ -33,8 +33,9 @@ between has to be recovered, and every recovered value has to be defensible.
 > recoverable and a confident wrong value is not. Quality is scored before and
 > after across completeness, accuracy, consistency and richness, so the uplift is
 > a measured number: 52.8 → 60.4 deterministically over the full file, and
-> 51.2 → 78.3 on the model-enriched slice, with 97% of the commerce content
-> columns filled and 100% taxonomy coverage.
+> on the 100-row model-enriched slice 51.6 at input, 59.6 deterministically and
+> 72.4 with the model, with every commerce content column filled and 100% taxonomy
+> coverage.
 
 ---
 
@@ -73,8 +74,9 @@ ingest → classify → decode → resolve → validate → enrich → judge →
   in 7 seconds with no API key at all.
 - **Identity resolution.** `Part_Manuf` is published as `supplier`; brand is
   resolved from the brand columns, then a brand vocabulary matched against the
-  description, then maker-style account names. 552 brands and 885 manufacturers
-  filled, deterministically.
+  description, then maker-style account names. A brand is published on 885 rows
+  (552 of them recovered rather than read from the brand columns) and a
+  manufacturer on 903, deterministically.
 - **Scoped inference.** Peer consensus fills gaps from the catalogue itself, but
   brand-scoped attributes (series, model, UPC) are refused from a category-only
   peer group — otherwise a brandless Diablo belt inherits 3M's `775L` series
@@ -107,17 +109,23 @@ ingest → classify → decode → resolve → validate → enrich → judge →
 | Quality score | 59.6 | **72.4** |
 | Grade mix | C / D | **B31 / C66 / D2 / F1** |
 | Content column coverage | 0% | **100%** |
-| Attribute triplets per product | 2.6 | **5.9** |
+| Attribute triplets per product | 3.7 | **5.9** |
 | Feature bullets per product | 0 | **5.0** |
 | Delivery taxonomy coverage | 100% | **100%** |
 
 411 model calls, zero rate-limit failures, 100 of 100 rows completed.
 
-**Classifier escalation** — of 12 rows the keyword classifier left as
-`General Product`, the model resolved **9** (railing components ×5, window units
-×2, an abrasive, a decking board). The remaining three — a heater kit, an attic
-access door, a rainscreen — have no matching class in the 26-category taxonomy
-and stay generic rather than being forced.
+The slice is the first 100 rows of the file (58% abrasives, 33% appliances); decking
+boards, LED lamps and light fixtures, about a third of the catalogue, are not in it,
+so these numbers are not an estimate for the whole file.
+
+**Classifier escalation** — in a 12-row development trial (not part of the shipped
+snapshot), on rows the keyword classifier had left as `General Product`, the model
+resolved **9** (railing components ×5, window units ×2, an abrasive, a decking
+board). The remaining three — a heater kit, an attic access door, a rainscreen —
+have no matching class in the 26-category taxonomy and stay generic rather than
+being forced. Twelve rows is a small sample; the rate over all 290 such rows has not
+been measured.
 
 ---
 
@@ -178,8 +186,8 @@ pytest tests -q                                      # 35 tests
 - A full 1,000-row model pass is ~4,000 calls ≈ 5 hours on a free tier's 15
   requests-per-minute ceiling. The deterministic pass covers everything; the
   model is pointed at a slice.
-- 290 rows classify as `General Product` deterministically; the escalation path
-  resolves about three quarters of them, and the rest are genuinely outside the
-  26-class taxonomy.
+- 290 rows classify as `General Product` deterministically. In the 12-row trial the
+  escalation path placed nine, and the other three were genuinely outside the
+  26-class taxonomy; the rate over all 290 has not been measured.
 - `SKU - MY_PART_NUMBER`, `List Price` and `Prop 65` export blank. They are
   distributor-side data no amount of enrichment can honestly invent.
