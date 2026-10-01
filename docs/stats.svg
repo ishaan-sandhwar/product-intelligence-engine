@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="150" viewBox="0 0 1280 150" role="img" aria-label="Key numbers: ~7 s 1,000 rows, no API key; 252 delivery columns, template-driven; 71% classified with no LLM call; 52.8 → 60.4 quality score, deterministic pass; 72.4 quality with the model, first 100 rows; 35 tests passing">
+<rect x="0.0" y="0" width="200.0" height="150" rx="14" fill="#0f172a"/>
+<rect x="0.5" y=".5" width="199.0" height="149" rx="13.5" fill="none" stroke="#ffffff" stroke-opacity="0.09"/>
+<rect x="22.0" y="0" width="156.0" height="4" rx="2" fill="#38bdf8"/>
+<text x="100.0" y="78" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="42" font-weight="800" fill="#ffffff">~7 s</text>
+<text x="100.0" y="110" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15.5" fill="#a8b3c4">1,000 rows, no API key</text>
+<rect x="216.0" y="0" width="200.0" height="150" rx="14" fill="#0f172a"/>
+<rect x="216.5" y=".5" width="199.0" height="149" rx="13.5" fill="none" stroke="#ffffff" stroke-opacity="0.09"/>
+<rect x="238.0" y="0" width="156.0" height="4" rx="2" fill="#a78bfa"/>
+<text x="316.0" y="78" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="42" font-weight="800" fill="#ffffff">252</text>
+<text x="316.0" y="110" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15.5" fill="#a8b3c4">delivery columns,</text>
+<text x="316.0" y="131" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15.5" fill="#a8b3c4">template-driven</text>
+<rect x="432.0" y="0" width="200.0" height="150" rx="14" fill="#0f172a"/>
+<rect x="432.5" y=".5" width="199.0" height="149" rx="13.5" fill="none" stroke="#ffffff" stroke-opacity="0.09"/>
+<rect x="454.0" y="0" width="156.0" height="4" rx="2" fill="#34d399"/>
+<text x="532.0" y="78" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="42" font-weight="800" fill="#ffffff">71%</text>
+<text x="532.0" y="110" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15.5" fill="#a8b3c4">classified with</text>
+<text x="532.0" y="131" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15.5" fill="#a8b3c4">no LLM call</text>
+<rect x="648.0" y="0" width="200.0" height="150" rx="14" fill="#0f172a"/>
+<rect x="648.5" y=".5" width="199.0" height="149" rx="13.5" fill="none" stroke="#ffffff" stroke-opacity="0.09"/>
+<rect x="670.0" y="0" width="156.0" height="4" rx="2" fill="#f59e0b"/>
+<text x="748.0" y="78" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="30" font-weight="800" fill="#ffffff" textLength="172" lengthAdjust="spacingAndGlyphs">52.8 → 60.4</text>
+<text x="748.0" y="110" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15.5" fill="#a8b3c4">quality score,</text>
+<text x="748.0" y="131" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15.5" fill="#a8b3c4">deterministic pass</text>
+<rect x="864.0" y="0" width="200.0" height="150" rx="14" fill="#0f172a"/>
+<rect x="864.5" y=".5" width="199.0" height="149" rx="13.5" fill="none" stroke="#ffffff" stroke-opacity="0.09"/>
+<rect x="886.0" y="0" width="156.0" height="4" rx="2" fill="#f472b6"/>
+<text x="964.0" y="78" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="42" font-weight="800" fill="#ffffff">72.4</text>
+<text x="964.0" y="110" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15.5" fill="#a8b3c4">quality with the</text>
+<text x="964.0" y="131" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15.5" fill="#a8b3c4">model, first 100 rows</text>
+<rect x="1080.0" y="0" width="200.0" height="150" rx="14" fill="#0f172a"/>
+<rect x="1080.5" y=".5" width="199.0" height="149" rx="13.5" fill="none" stroke="#ffffff" stroke-opacity="0.09"/>
+<rect x="1102.0" y="0" width="156.0" height="4" rx="2" fill="#60a5fa"/>
+<text x="1180.0" y="78" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="42" font-weight="800" fill="#ffffff">35</text>
+<text x="1180.0" y="110" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15.5" fill="#a8b3c4">tests passing</text>
+</svg>

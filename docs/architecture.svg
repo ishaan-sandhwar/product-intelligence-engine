@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="711" viewBox="0 0 1200 711" role="img" aria-label="Pipeline: classify, extract and resolve per record; catalogue-wide context; then rules, enrich, judge, route and score">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#94a3b8"/></marker></defs>
+<rect width="1200" height="711" rx="18" fill="#0b1220"/>
+<rect x="1" y="1" width="1198" height="709" rx="17" fill="none" stroke="#ffffff" stroke-opacity="0.08"/>
+<rect x="385" y="24" width="12" height="12" rx="3" fill="#38bdf8"/><text x="405" y="35" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="13.5" font-weight="500" fill="#d5deea">deterministic</text>
+<rect x="516" y="24" width="12" height="12" rx="3" fill="#a78bfa"/><text x="536" y="35" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="13.5" font-weight="500" fill="#d5deea">model involved</text>
+<rect x="655" y="24" width="12" height="12" rx="3" fill="#fb923c"/><text x="675" y="35" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="13.5" font-weight="500" fill="#d5deea">human in the loop</text>
+<rect x="338" y="60" width="524" height="48" rx="12" fill="#0f172a" stroke="#ffffff" stroke-opacity="0.18"/>
+<text x="600" y="91" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="18" font-weight="700" fill="#ffffff">6 input columns  ·  optional PDF / image / URL</text>
+<path d="M 600 110 L 600 136" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<rect x="30" y="138" width="1140" height="172" rx="16" fill="#38bdf8" fill-opacity="0.05" stroke="#38bdf8" stroke-opacity="0.25" stroke-dasharray="6 6"/>
+<text x="52" y="161" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="13" font-weight="700" fill="#38bdf8">PHASE 1  ·  PER RECORD, THREAD-POOLED</text>
+<rect x="52" y="172" width="353" height="120" rx="12" fill="#111b2e"/>
+<rect x="52" y="172" width="353" height="120" rx="12" fill="none" stroke="#38bdf8" stroke-opacity="0.75" stroke-width="1.5"/>
+<rect x="60" y="188" width="4" height="88" rx="2" fill="#38bdf8"/>
+<circle cx="90" cy="202" r="14" fill="#38bdf8"/>
+<text x="90" y="208" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15" font-weight="800" fill="#0b1220">1</text>
+<text x="112" y="209" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="20" font-weight="700" fill="#ffffff">Classify</text>
+<text x="76" y="240" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">Keyword vote over the taxonomy; LLM only</text>
+<text x="76" y="261" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">when unsure</text>
+<path d="M 406 232.0 L 422 232.0" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<rect x="423" y="172" width="353" height="120" rx="12" fill="#111b2e"/>
+<rect x="423" y="172" width="353" height="120" rx="12" fill="none" stroke="#a78bfa" stroke-opacity="0.75" stroke-width="1.5"/>
+<rect x="431" y="188" width="4" height="88" rx="2" fill="#a78bfa"/>
+<circle cx="461" cy="202" r="14" fill="#a78bfa"/>
+<text x="461" y="208" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15" font-weight="800" fill="#0b1220">2</text>
+<text x="483" y="209" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="20" font-weight="700" fill="#ffffff">Extract</text>
+<text x="447" y="240" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">Every source independently: trade</text>
+<text x="447" y="261" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">shorthand, units, regex, LLM, VLM</text>
+<path d="M 778 232.0 L 794 232.0" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<rect x="795" y="172" width="353" height="120" rx="12" fill="#111b2e"/>
+<rect x="795" y="172" width="353" height="120" rx="12" fill="none" stroke="#38bdf8" stroke-opacity="0.75" stroke-width="1.5"/>
+<rect x="803" y="188" width="4" height="88" rx="2" fill="#38bdf8"/>
+<circle cx="833" cy="202" r="14" fill="#38bdf8"/>
+<text x="833" y="208" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15" font-weight="800" fill="#0b1220">3</text>
+<text x="855" y="209" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="20" font-weight="700" fill="#ffffff">Resolve</text>
+<text x="819" y="240" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">Candidates become one golden value; losers</text>
+<text x="819" y="261" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">kept with the reason they lost</text>
+<path d="M 600 312 L 600 338" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<rect x="256" y="340" width="688" height="48" rx="24" fill="#0f172a" stroke="#34d399" stroke-opacity="0.6"/>
+<text x="600" y="371" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="17" font-weight="700" fill="#34d399">Catalogue-wide context is built here:  RAG index  +  product graph</text>
+<path d="M 600 390 L 600 416" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<rect x="30" y="418" width="1140" height="193" rx="16" fill="#a78bfa" fill-opacity="0.05" stroke="#a78bfa" stroke-opacity="0.25" stroke-dasharray="6 6"/>
+<text x="52" y="441" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="13" font-weight="700" fill="#a78bfa">PHASE 2  ·  PER RECORD, THREAD-POOLED</text>
+<rect x="52" y="452" width="208" height="141" rx="12" fill="#111b2e"/>
+<rect x="52" y="452" width="208" height="141" rx="12" fill="none" stroke="#38bdf8" stroke-opacity="0.75" stroke-width="1.5"/>
+<rect x="60" y="468" width="4" height="109" rx="2" fill="#38bdf8"/>
+<circle cx="90" cy="482" r="14" fill="#38bdf8"/>
+<text x="90" y="488" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15" font-weight="800" fill="#0b1220">4</text>
+<text x="112" y="489" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="20" font-weight="700" fill="#ffffff">Rules</text>
+<text x="76" y="520" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">Cross-field and range</text>
+<text x="76" y="541" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">checks, no model</text>
+<path d="M 261 522.5 L 273 522.5" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<rect x="274" y="452" width="208" height="141" rx="12" fill="#111b2e"/>
+<rect x="274" y="452" width="208" height="141" rx="12" fill="none" stroke="#a78bfa" stroke-opacity="0.75" stroke-width="1.5"/>
+<rect x="282" y="468" width="4" height="109" rx="2" fill="#a78bfa"/>
+<circle cx="312" cy="482" r="14" fill="#a78bfa"/>
+<text x="312" y="488" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15" font-weight="800" fill="#0b1220">5</text>
+<text x="334" y="489" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="20" font-weight="700" fill="#ffffff">Enrich</text>
+<text x="298" y="520" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">Gaps from peers first,</text>
+<text x="298" y="541" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">then the model</text>
+<path d="M 483 522.5 L 495 522.5" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<rect x="496" y="452" width="208" height="141" rx="12" fill="#111b2e"/>
+<rect x="496" y="452" width="208" height="141" rx="12" fill="none" stroke="#a78bfa" stroke-opacity="0.75" stroke-width="1.5"/>
+<rect x="504" y="468" width="4" height="109" rx="2" fill="#a78bfa"/>
+<circle cx="534" cy="482" r="14" fill="#a78bfa"/>
+<text x="534" y="488" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15" font-weight="800" fill="#0b1220">6</text>
+<text x="556" y="489" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="20" font-weight="700" fill="#ffffff">Judge</text>
+<text x="520" y="520" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">Adversarial audit of</text>
+<text x="520" y="541" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">the assembled record</text>
+<path d="M 705 522.5 L 717 522.5" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<rect x="718" y="452" width="208" height="141" rx="12" fill="#111b2e"/>
+<rect x="718" y="452" width="208" height="141" rx="12" fill="none" stroke="#fb923c" stroke-opacity="0.75" stroke-width="1.5"/>
+<rect x="726" y="468" width="4" height="109" rx="2" fill="#fb923c"/>
+<circle cx="756" cy="482" r="14" fill="#fb923c"/>
+<text x="756" y="488" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15" font-weight="800" fill="#0b1220">7</text>
+<text x="778" y="489" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="20" font-weight="700" fill="#ffffff">Route</text>
+<text x="742" y="520" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">Low confidence or open</text>
+<text x="742" y="541" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">issues go to the</text>
+<text x="742" y="562" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">review queue</text>
+<path d="M 927 522.5 L 939 522.5" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<rect x="940" y="452" width="208" height="141" rx="12" fill="#111b2e"/>
+<rect x="940" y="452" width="208" height="141" rx="12" fill="none" stroke="#38bdf8" stroke-opacity="0.75" stroke-width="1.5"/>
+<rect x="948" y="468" width="4" height="109" rx="2" fill="#38bdf8"/>
+<circle cx="978" cy="482" r="14" fill="#38bdf8"/>
+<text x="978" y="488" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="15" font-weight="800" fill="#0b1220">8</text>
+<text x="1000" y="489" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="20" font-weight="700" fill="#ffffff">Score</text>
+<text x="964" y="520" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">Quality on the same</text>
+<text x="964" y="541" text-anchor="start" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="14.5" font-weight="400" fill="#d5deea">yardstick as the input</text>
+<path d="M 600 613 L 600 639" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<rect x="110" y="641" width="980" height="48" rx="12" fill="#0f172a" stroke="#ffffff" stroke-opacity="0.18"/>
+<text x="600" y="672" text-anchor="middle" font-family='"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif' font-size="18" font-weight="700" fill="#ffffff">Golden record   →   delivery CSV (252 cols)   ·   flat CSV   ·   audit JSON   ·   review queue</text>
+</svg>
